@@ -1,0 +1,39 @@
+.gallery{
+  width: 30vw;
+
+  // все изображения внутри вьюпорта будут мелкими, затем с помощью scale их увеличим
+  column-width: 2em;
+  gap: var(--gap);
+  transform: scale(8.2);
+  will-change: transform; // for transform и чтоб изображения не размывались
+  transition: transform 1s cubic-bezier(.075, 1, .25, 1), opacity 1s;
+
+  .loaded &{
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: 991px) {
+    width: 100%;
+    column-width: 10em;
+    transform: scale(1);
+  }
+}
+
+.gallery__item {
+  margin-bottom: var(--gap);
+  transform: scale(1.001); // чтобы элементы в увеличении приняли нужную форму нужно чуть-чуть их увеличить
+  will-change: transform; // for transform и чтоб изображения, которые за кадром не размывались
+  transition: .3s;
+
+  &:hover {
+    transform: scale(1.03);
+    @media only screen and (max-width: 991px) {
+      transform: scale(1);
+    }
+  }
+}
+
+.gallery__img {
+  width: 100%;
+  display: block;
+}

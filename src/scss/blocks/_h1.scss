@@ -1,0 +1,26 @@
+.h1{
+  text-transform: uppercase;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  letter-spacing: .1em;
+  font-size: calc(var(--index) * 2.8);
+  position: absolute;
+  font-weight: 200;
+  text-align: center;
+  opacity: .9;
+  margin-top: .2em;
+
+  @media only screen and (max-width: 991px) {
+    position: relative;
+  }
+}
+
+.preloader{
+  display: block;
+  font-family: Helvetica, sans-serif;
+  font-size: calc(var(--index) * .75);
+  margin-top: 5px;
+
+  .loaded & {
+    opacity: 0;
+  }
+}

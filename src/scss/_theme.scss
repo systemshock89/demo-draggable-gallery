@@ -1,0 +1,9 @@
+// dark mode
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-dark);
+  }
+  .h1 {
+    filter: invert(100%);
+  }
+}

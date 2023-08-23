@@ -1,0 +1,26 @@
+@use "sass:math";
+
+@function rem($px) {
+  @return calc($px / 16) + rem;
+}
+
+@function betterClamp($minSize, $maxSize, $minWidth: 320, $maxWidth: 1920) {
+  // source: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+  // convert to rem
+  // ! можно и не конвертировать в rem, закомментировав 4 строчки нижу и далее rem поменять на px
+  $minSize: math.div($minSize, 16);
+  $maxSize: math.div($maxSize, 16);
+  $maxWidth: math.div($maxWidth, 16);
+  $minWidth: math.div($minWidth, 16);
+  // do calculations
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+  // output as rem
+  $minSize: $minSize * 1rem;
+  $maxSize: $maxSize * 1rem;
+  @return clamp(
+          #{$minSize},
+          #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+          #{$maxSize}
+  );
+}

@@ -1,0 +1,30 @@
+// подключение шрифтов только woff2
+@mixin font($fname, $fweight, $fstyle, $furl) {
+  @font-face {
+    font-family: $fname;
+    font-display: swap;
+    font-style: $fstyle;
+    font-weight: $fweight;
+    src: url($furl) format('woff2');
+  }
+}
+
+//@include font('roboto-my', 400, normal, '../fonts/roboto-regular-webfont.woff2');
+//@include font('roboto-my', 400, italic, '../fonts/roboto-italic-webfont.woff2');
+
+// Font fallbacks
+// npx fontpie ./src/fonts/roboto-regular-webfont.woff2 -n roboto-my
+// npx fontpie ./src/fonts/roboto-bold-webfont.woff2 -w 700 -n roboto-my
+// npx fontpie ./src/fonts/roboto-italic-webfont.woff2 -s italic -n roboto-my
+// https://github.com/pixel-point/fontpie
+
+// font-weight helper:
+
+// 100 Extra Light or Ultra Light;
+// 200 Light or Thin; 300 Book or Demi;
+// 400 Regular or Normal;
+// 500 Medium;
+// 600 Semibold or Demibold;
+// 700 Bold;
+// 800 Black or Extra Bold or Heavy;
+// 900 Extra Black or Fat or Ultra Black
